@@ -9,3 +9,14 @@ export const getAllProducts = async () => {
   }));
   return cleanedDocs;
 };
+
+// export const getProductById = async (id) => {
+//     const docRef = doc(db, 'products', id);          // Get the document reference
+//     const snapshot = await getDoc(docRef);           // Fetch the document
+  
+//     if (snapshot.exists()) {
+//       return { id: snapshot.id, ...snapshot.data() };
+//     } else {
+//       throw new Error('Product not found');
+//     }
+//   };

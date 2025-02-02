@@ -17,14 +17,13 @@ const ApiData = () => {
           fetchData();
          
     },[])
-    
+
     console.log("API DATA COMING...", data)
   return (
     <div>
     {data.map((a)=>{
         return <h3>{a.title}</h3>
       })}
-      
     </div>
   )
 }

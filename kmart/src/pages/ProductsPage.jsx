@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { getAllProducts } from '../services/project-services'
-import { useSearchParams } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { ProductContext } from '../context/ProductContextProvider'
 import ProductsList from '../components/ProductsList'
 const ProductsPage = () => {
-    const [products, setProducts]=useState([])
-    const [error,setError]=useState(null)
-    useEffect(()=>{
-      getAllProducts().then((data)=>{
-        setProducts(data)
-      }).catch((e)=>{
-        setError(e)
-      })
-    },[])
+   const { products } = useContext(ProductContext);
+   console.log("SOOO", products)
   return (
     <div>
       <h1>Products Page...</h1>
