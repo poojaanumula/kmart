@@ -7,15 +7,26 @@ const ProductContextProvider = ({children}) => {
     const [error,setError]=useState(null)
     const [cart, setCart] = useState([])
     const [total, setTotal]= useState()
-
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [category, setCategory] = useState('all');
 
     useEffect(()=>{
       getAllProducts().then((data)=>{
         setProducts(data)
+        setFilteredProducts(data);
       }).catch((e)=>{
         setError(e)
       })
     },[])
+
+    useEffect(() => {
+      if (category === 'all') {
+        setFilteredProducts(products);
+      } else {
+        setFilteredProducts(products.filter(product => product.category === category));
+      }
+    }, [category, products]);
+
     const findProductsById = (id)=>{
       return products.find(product => product.id == id);
     }
@@ -39,6 +50,7 @@ const ProductContextProvider = ({children}) => {
   const removeFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
-  return <ProductContext.Provider value={{products,findProductsById, addToCart, cart, total,removeFromCart}}>{children}</ProductContext.Provider>
+  return <ProductContext.Provider value={{ products: filteredProducts,
+      setCategory,findProductsById, addToCart, cart, total,removeFromCart}}>{children}</ProductContext.Provider>
 }
 export default ProductContextProvider

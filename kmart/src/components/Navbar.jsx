@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useContext } from 'react';
+import { ProductContext } from '../context/ProductContextProvider';
+import { BsCursor } from 'react-icons/bs';
 //import {kmartlogo} from '../assets/images/kmartlogo'
 
 const Navbar = () => {
+   const { setCategory } = useContext(ProductContext);
   return (
     <>
 
- <div style={{display:'flex', justifyContent:'space-between', background:'black', padding:'20px', color:'white'}}>
+ <div style={{display:'flex', justifyContent:'space-between', background:'black', padding:'20px', color:'white',cursor:'pointer'}}>
     {/* //<img src= {kmartlogo} /> */}
     <h3>LOGO</h3>
-     <ul  style={{display:'flex', gap:'20px', listStyle:'none'}}>
-        <li>Home</li>
-        <li>Men</li>
-        <li>Woman</li>
+     <ul  style={{display:'flex', gap:'20px', listStyle:'none', cursor:'pointer'}}>
+        <li  onClick={() => setCategory('all')}>Home</li>
+        <li onClick={() => setCategory("men's clothing")}>Men</li>
+        <li onClick={() => setCategory("women's clothing")}>Women</li>
+        <li onClick={() => setCategory("jewelery")}>Jewelery</li>
+        <li onClick={() => setCategory("electronics")}>Electronics</li>
      </ul>
      <b>Cart</b>
  </div>
