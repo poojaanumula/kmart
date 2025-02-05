@@ -1,0 +1,48 @@
+.title{
+    margin:30px auto;
+    text-align:center;
+    font-family: cursive;
+
+}
+
+.titleTwo{
+    text-align:center;
+    font-size:25px;
+    font-family:cursive;
+    margin:20px auto;
+    color:red;
+}
+.list{
+    width:70%; 
+    margin:30px auto;
+    display:flex; 
+    flex-direction:column; 
+    gap:20px;
+}
+.btn{
+    padding: 5px;
+    background-color: transparent;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+}
+.desc{
+    display: flex;
+     padding: 10px;
+}
+.somePadding{
+     padding: 10px;
+}
+.delete{
+     color: red;
+     font-size: 30;
+      width: 100px;
+      margin-left: 10px;
+}
+.total{
+    font-size: 20px;
+     color: red; 
+     text-align: center;
+}
